@@ -1,5 +1,5 @@
 {
-  "name": "view-class",
+  "name": "@earthtone/view-class",
   "version": "1.0.0",
   "description": "View Component Class",
   "main": "index.js",

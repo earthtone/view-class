@@ -47,7 +47,7 @@ class AboutPage extends View {
 
   render () { 
     return html`<main id="about-page">
-      <h3>About ${props.org}</h3>
+      <h3>About ${this.data.org}</h3>
       <p>${this.data.textContent}</p>
     </main>`;
   }
@@ -56,7 +56,8 @@ class AboutPage extends View {
 var about = new AboutPage({
   parentNode: $root,
   data: {
-    textContent: 'This is a page describing the origin story of an organization!'
+    textContent: 'This is a page describing the origin story of an organization!',
+    org: 'Batman Inc.'
   }
 });
 

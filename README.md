@@ -1,6 +1,6 @@
 # View Class
 
-Standard View Class for Frontend Javascript projects, using [bel](https://www.npmjs.com/package/bel) to transform [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) containing HTML into DOM Nodes.
+JavaScript class for browser-centric projects, using [bel](https://www.npmjs.com/package/bel) to transform [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) containing HTML into DOM Nodes. Use with a [routing library](https://github.com/krasimir/navigo) and an [event bus](https://nodejs.org/api/events.html#events_class_eventemitter) to build out small, simple projects that need "dumb", unopinionated UI components.
 
 ### Installation
 ```
@@ -38,4 +38,29 @@ window.addEventListener('load', function(){
     home.mount();   
 });
 
+
+// Class Syntax
+class AboutPage extends View {
+  constructor(options){
+    super(options);
+  }
+
+  render () { 
+    return html`<main id="about-page">
+      <h3>About ${props.org}</h3>
+      <p>${this.data.textContent}</p>
+    </main>`;
+  }
+}
+
+var about = new AboutPage({
+  parentNode: $root,
+  data: {
+    textContent: 'This is a page describing the origin story of an organization!'
+  }
+});
+
+window.addEventListener('load', function () {
+  about.mount();
+})
 ```
